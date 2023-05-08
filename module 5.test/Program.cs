@@ -2,7 +2,7 @@
 {
     internal class Program
     {
-        static string ShowColor()
+        static string ShowColor(string username)
         {
 
             {
@@ -47,18 +47,32 @@
         {
             var (name, age) = ("Константин", 24);
 
-            Console.WriteLine("Мое имя: {0}", name);
-            Console.WriteLine("Мой возвраст: {0}", age);
+            var favcolors = new string[3];
+
+           /* Console.WriteLine("Мое имя: {0}", name);
+            Console.WriteLine("Мой возвраст: {0}", age);*/
 
             Console.Write("Введите имя: ");
             name = Console.ReadLine();
             Console.Write("Введите возрас с цифрами:");
             age = Convert.ToInt32(Console.ReadLine());
 
+           
             Console.WriteLine("Ваше имя: {0}", name);
             Console.WriteLine("Ваш возраст: {0}", age);
 
-            ShowColor();
+            for (int i = 0; i < favcolors.Length; i++)
+            {
+                favcolors[i] =  ShowColor();
+            }
+
+            Console.WriteLine("Ваши любимые цвета: ");
+            foreach (var color in favcolors)
+            {
+                Console.WriteLine(color);
+            }
+
+            Console.ReadKey();
         }
 
 
