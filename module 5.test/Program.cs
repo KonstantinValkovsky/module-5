@@ -2,11 +2,42 @@
 {
     internal class Program
     {
-        static string ShowColor(string username)
+        static void Main(string[] args)
+        {
+            var (name, age) = ("Константин", 24);
+
+            Console.WriteLine("Мое имя: {0}", name);
+            Console.WriteLine("Мой возвраст: {0}", age);
+
+            Console.Write("Введите имя: ");
+            name = Console.ReadLine();
+            Console.Write("Введите возрас с цифрами:");
+            age = Convert.ToInt32(Console.ReadLine());
+
+
+            Console.WriteLine("Ваше имя: {0}", name);
+            Console.WriteLine("Ваш возраст: {0}", age);
+
+            var favcolors = new string[3];
+
+            for (int i = 0; i < favcolors.Length; i++)
+            {
+                favcolors[i] = ShowColor(name, age);
+            }
+
+            Console.WriteLine("Ваши любимые цвета: ");
+            foreach (var color in favcolors)
+            {
+                Console.WriteLine(color);
+            }
+
+            Console.ReadKey();
+        }
+        static string ShowColor(string username, int userage)
         {
 
             {
-                Console.WriteLine("Напишите свой любимый цвет на английском с маленькой буквы");
+                Console.WriteLine("{0}, {1} лет \nНапишите свой любимый цвет на английском с маленькой буквы:", username, userage);
                 var color = Console.ReadLine();
 
                 
@@ -43,37 +74,7 @@
                 return color;
             }
         }
-        static void Main(string[] args)
-        {
-            var (name, age) = ("Константин", 24);
-
-            var favcolors = new string[3];
-
-           /* Console.WriteLine("Мое имя: {0}", name);
-            Console.WriteLine("Мой возвраст: {0}", age);*/
-
-            Console.Write("Введите имя: ");
-            name = Console.ReadLine();
-            Console.Write("Введите возрас с цифрами:");
-            age = Convert.ToInt32(Console.ReadLine());
-
-           
-            Console.WriteLine("Ваше имя: {0}", name);
-            Console.WriteLine("Ваш возраст: {0}", age);
-
-            for (int i = 0; i < favcolors.Length; i++)
-            {
-                favcolors[i] =  ShowColor();
-            }
-
-            Console.WriteLine("Ваши любимые цвета: ");
-            foreach (var color in favcolors)
-            {
-                Console.WriteLine(color);
-            }
-
-            Console.ReadKey();
-        }
+        
 
 
     }

@@ -4,7 +4,10 @@
     {
         static void Main(string[] args)
         {
-            GetArrаyFromConsole();
+            int[] massiv = GetArrаyFromConsole(); 
+            Console.WriteLine("\n");
+            SortArray(massiv);
+
 
 
         }
@@ -12,19 +15,28 @@
         {
             var result = new int[5];
 
-            for (int i = 0; i < result.Length; i++) 
+            for (int i = 0; i < result.Length; i++)
             {
                 Console.Write("Введите элемент массива номер {0}: ", i + 1);
                 result[i] = int.Parse(Console.ReadLine());
             }
 
+            foreach (int arr in result)
+            {
+                Console.Write(arr + ",");
+            }
+            return result;
+        }
+
+        static int[] SortArray(int[] result)
+        {
+           
             Array.Sort(result);
 
             foreach (int num in result)
             {
-                Console.Write(num + " ");
+                Console.Write(num + ",");
             }
-
             return result;
         }
     }
